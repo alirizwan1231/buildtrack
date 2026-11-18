@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0e13;
+  --color-panel: #10161e;
+  --color-brand: #f5b301;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0e13;
+  color: #e2e8f0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+::selection {
+  background: rgba(245, 179, 1, 0.85);
+  color: #0a0e13;
+}
+
+/* Blueprint grid backdrop */
+.blueprint {
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Diagonal hazard stripe */
+.hazard {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #f5b301 0px,
+    #f5b301 14px,
+    #0a0e13 14px,
+    #0a0e13 28px
+  );
+}
+
+/* Hide scrollbars on horizontal rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Thin styled scrollbar for the app */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e13;
+}
+::-webkit-scrollbar-thumb {
+  background: #26313f;
+  border-radius: 8px;
+  border: 2px solid #0a0e13;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f5b301;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+  50% { opacity: 0.75; box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
